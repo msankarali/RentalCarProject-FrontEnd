@@ -28,6 +28,9 @@
               "src/assets"
             ],
             "styles": [
+              "primeicons/primeicons.css",
+              "primeng/resources/themes/nova/theme.css",
+              "primeng/resources/primeng.min.css",
               "bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
