@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Color } from 'src/app/models/entities/color';
+import { ColorService } from 'src/app/services/color.service';
 
 @Component({
   selector: 'app-color',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColorComponent implements OnInit {
 
-  constructor() { }
+  colors: Color[] = [];
+  constructor(private colorService: ColorService) { }
 
   ngOnInit(): void {
+    this.GetAllColors();
+  }
+
+  GetAllColors() {
+    this.colorService.getAll().subscribe(response => {
+      this.colors = response.data;
+    });
   }
 
 }
