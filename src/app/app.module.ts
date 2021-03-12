@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AccordionModule } from 'primeng/accordion';
 import { MenubarModule } from 'primeng/menubar';
-import { MenuModule } from 'primeng/menu';
 import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { TieredMenuModule } from 'primeng/tieredmenu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,7 @@ import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { CarComponent } from './components/car/car.component';
 import { RentComponent } from './components/rent/rent.component';
+import { LeftsidebarComponent } from './components/leftsidebar/leftsidebar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { RentComponent } from './components/rent/rent.component';
     ColorComponent,
     CustomerComponent,
     CarComponent,
-    RentComponent
+    RentComponent,
+    LeftsidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -31,8 +35,11 @@ import { RentComponent } from './components/rent/rent.component';
     HttpClientModule,
     MenubarModule,
     AccordionModule,
-    MenuModule,
-    TableModule
+    MenubarModule,
+    TableModule,
+    ButtonModule,
+    TieredMenuModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

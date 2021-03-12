@@ -21,5 +21,4 @@ export class CustomerComponent implements OnInit {
       this.customers = response.data;
     });
   }
-
 }

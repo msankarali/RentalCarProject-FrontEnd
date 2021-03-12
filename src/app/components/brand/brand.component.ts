@@ -25,5 +25,4 @@ export class BrandComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
-
 }

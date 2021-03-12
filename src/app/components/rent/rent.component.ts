@@ -13,7 +13,7 @@ export class RentComponent implements OnInit {
   constructor(private rentalService: RentalService) { }
 
   ngOnInit(): void {
-
+    this.getAllRentedCars();
   }
 
   getAllRentedCars() {
