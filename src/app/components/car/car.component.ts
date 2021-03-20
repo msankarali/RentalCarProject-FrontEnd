@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarDto } from 'src/app/models/dtos/carDto';
 import { CarFilterDto } from 'src/app/models/filters/carFilterDto';
 import { CarService } from 'src/app/services/car.service';
@@ -22,8 +22,13 @@ export class CarComponent implements OnInit {
 
   constructor(
     private carService: CarService,
-    private activatedRoute: ActivatedRoute
-  ) { }
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {
+    router.events.subscribe((event) => {
+      this.GetAll();
+    });
+  }
 
   ngOnInit(): void {
 
@@ -34,15 +39,9 @@ export class CarComponent implements OnInit {
 
     // console.log(this.carFilterDto);
     this.activatedRoute.params.subscribe(params => {
-      if (params['brandId']) {
-        this.GetAllByBrandId(params['brandId']);
-      } else if (params['colorId']) {
-        this.GetAllByColorId(params['colorId'])
-      } else if (params['brandId'] && params['colorId']) {
-        this.GetAllByBrandAndColorIds(params['brandId'], params['colorId'])
-      } else {
-        this.GetAll();
-      }
+
+      this.GetAll();
+
     })
   }
 

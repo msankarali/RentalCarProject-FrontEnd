@@ -21,10 +21,6 @@ export class CarService {
     return this.httpClient.get<CarDtoResponse>(this.apiUrl + 'GetAllCarsWithDetails?colorId=' + colorId);
   }
   getAll(): Observable<CarDtoResponse> {
-    // console.log(this.activatedRoute.snapshot);
-    // console.log(this.activatedRoute.url);
-
-
     return this.httpClient.get<CarDtoResponse>(this.apiUrl + 'GetAllCarsWithDetails?' + this.router.url.split('?')[1]);
   }
 
