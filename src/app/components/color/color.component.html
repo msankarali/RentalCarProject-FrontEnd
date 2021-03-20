@@ -1,3 +1,5 @@
-<ul *ngFor="let car of colors">
-    <li>{{car.colorId}} {{car.colorName}}</li>
+<ul>
+    <li *ngFor="let color of colors" (click)="setCurrentColor(color)" routerLink="cars"
+        [queryParams]="{colorId: color.colorId}" queryParamsHandling="merge" [class]="getCurrentColorClass(color)">
+        {{color.colorId}} {{color.colorName}}</li>
 </ul>

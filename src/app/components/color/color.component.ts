@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Color } from 'src/app/models/entities/color';
 import { ColorService } from 'src/app/services/color.service';
 
@@ -10,7 +11,10 @@ import { ColorService } from 'src/app/services/color.service';
 export class ColorComponent implements OnInit {
 
   colors: Color[] = [];
-  constructor(private colorService: ColorService) { }
+  currentColor: Color;
+  constructor(
+    private colorService: ColorService,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.GetAllColors();
@@ -20,6 +24,17 @@ export class ColorComponent implements OnInit {
     this.colorService.getAll().subscribe(response => {
       this.colors = response.data;
     });
+  }
+
+  setCurrentColor(color: Color) {
+    this.currentColor = color;
+  }
+  getCurrentColorClass(color: Color) {
+    if (color == this.currentColor) {
+      return "list-group-item bg-danger active"
+    } else {
+      return "list-group-item"
+    }
   }
 
 }

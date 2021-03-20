@@ -9,7 +9,10 @@
 <div *ngIf="dataLoaded == true">
 
     <ol>
-        <li *ngFor="let brand of brands">{{brand.brandId}} {{brand.brandName}}</li>
+        <li *ngFor="let brand of brands" (click)="setCurrentBrand(brand)" routerLink="cars"
+            [queryParams]="{brandId: brand.brandId}" queryParamsHandling="merge" [class]="getCurrentBrandClass(brand)">
+            {{brand.brandId}} {{brand.brandName}}</li>
+
     </ol>
 
 </div>

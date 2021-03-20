@@ -1,4 +1,6 @@
-<p-table [value]="cars">
+<input type="text" class="form-control" [(ngModel)]="filterCarText" placeholder="Araba adı">
+
+<p-table [value]="cars | carFilter:filterCarText">
     <ng-template pTemplate="header">
         <tr>
             <th>Brand Name</th>
@@ -10,7 +12,7 @@
             <th>Is Deleted</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-car>
+    <ng-template pTemplate="body" let-car >
         <tr>
             <td>{{car.brandName}}</td>
             <td>{{car.carName}}</td>
