@@ -24,7 +24,6 @@ export class CarService {
     return this.httpClient.get<CarDtoResponse>(this.apiUrl + 'GetAllCarsWithDetails?' + this.router.url.split('?')[1]);
   }
 
-
   getAllByBrandId(brandId: number): Observable<CarDtoResponse> {
     return this.httpClient.get<CarDtoResponse>(this.apiUrl + 'GetAllCarsByBrandId?brandId=' + brandId);
   }

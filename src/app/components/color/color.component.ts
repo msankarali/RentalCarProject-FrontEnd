@@ -14,7 +14,7 @@ export class ColorComponent implements OnInit {
   currentColor: Color;
   constructor(
     private colorService: ColorService,
-    private activatedRoute: ActivatedRoute) { }
+    public activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.GetAllColors();

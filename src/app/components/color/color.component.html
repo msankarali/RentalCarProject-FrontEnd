@@ -1,5 +1,12 @@
 <ul>
+    <li class="list-group-item">Get All</li>
     <li *ngFor="let color of colors" (click)="setCurrentColor(color)" routerLink="cars"
-        [queryParams]="{colorId: color.colorId}" queryParamsHandling="merge" [class]="getCurrentColorClass(color)">
+        [queryParams]="{colorId: color.colorId}" queryParamsHandling="merge" (relativeTo)="activatedRoute"
+        [class]="getCurrentColorClass(color)">
         {{color.colorId}} {{color.colorName}}</li>
 </ul>
+
+<!-- <select class="form-control">
+    <option *ngFor="let color of colors" routerLink="cars" (selectionChange)="setCurrentColor(color)"
+        [queryParams]="{colorId: color.colorId}" queryParamsHandling="merge">{{color.colorName}}</option>
+</select> -->
