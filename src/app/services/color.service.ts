@@ -9,7 +9,7 @@ import { ColorResponse } from '../models/responses/colorResponse';
 })
 export class ColorService {
 
-  private apiUrl = environment.apiUrl + 'Colors/';
+  private apiUrl = environment.apiUrl + 'api/Colors/';
 
   constructor(private httpClient: HttpClient) { }
 

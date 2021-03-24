@@ -9,7 +9,7 @@ import { BrandResponse } from '../models/responses/brandResponse';
 })
 export class BrandService {
 
-  private apiUrl = environment.apiUrl + 'Brands/';
+  private apiUrl = environment.apiUrl + 'api/Brands/';
 
   constructor(private httpClient: HttpClient) { }
 

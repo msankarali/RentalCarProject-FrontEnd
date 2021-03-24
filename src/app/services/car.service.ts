@@ -10,7 +10,7 @@ import { CarDtoResponse } from '../models/responses/carDtoResponse';
 })
 export class CarService {
 
-  private apiUrl = environment.apiUrl + 'Cars/';
+  private apiUrl = environment.apiUrl + 'api/Cars/';
   path: string;
   constructor(
     private httpClient: HttpClient,

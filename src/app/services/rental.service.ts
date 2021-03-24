@@ -11,7 +11,7 @@ import { RentedCarDtoResponse } from '../models/responses/rentedCarDtoResponse';
 })
 export class RentalService {
 
-  private apiUrl = environment.apiUrl + 'Rentals/';
+  private apiUrl = environment.apiUrl + 'api/Rentals/';
 
   constructor(private httpClient: HttpClient) { }
 

@@ -20,6 +20,8 @@ import { RentComponent } from './components/rent/rent.component';
 import { LeftsidebarComponent } from './components/leftsidebar/leftsidebar.component';
 import { CarFilterPipe } from './pipes/car-filter.pipe';
 import { ToastrModule } from 'ngx-toastr';
+import { ColorFilterPipe } from './pipes/color-filter.pipe';
+import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 
 
 
@@ -33,7 +35,10 @@ import { ToastrModule } from 'ngx-toastr';
     CarComponent,
     RentComponent,
     LeftsidebarComponent,
-    CarFilterPipe
+    
+    CarFilterPipe,
+    ColorFilterPipe,
+    BrandFilterPipe
   ],
   imports: [
     BrowserModule,

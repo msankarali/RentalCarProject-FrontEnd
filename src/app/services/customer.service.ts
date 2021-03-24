@@ -9,7 +9,7 @@ import { CustomerResponse } from '../models/responses/customerResponse';
 })
 export class CustomerService {
 
-  private apiUrl = environment.apiUrl + 'Customers/';
+  private apiUrl = environment.apiUrl + 'api/Customers/';
 
   constructor(private httpClient: HttpClient) { }
 

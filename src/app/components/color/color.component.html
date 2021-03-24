@@ -1,9 +1,12 @@
+<input type="text" class="form-control" id="filterColorText" placeholder="Renklerde ara"
+    [(ngModel)]="filterColorText" />
 <ul>
-    <li class="list-group-item">Get All</li>
-    <li *ngFor="let color of colors" (click)="setCurrentColor(color)" routerLink="cars"
+    <li class="list-group-item" (click)="setCurrentColor(null)" [class]="getCurrentColorClass(null)" [routerLink]=[]
+        [queryParams]="{colorId: ''}" queryParamsHandling='merge'>Tümü</li>
+    <li *ngFor="let color of colors | colorFilter: filterColorText" (click)="setCurrentColor(color)" routerLink="cars"
         [queryParams]="{colorId: color.colorId}" queryParamsHandling="merge" (relativeTo)="activatedRoute"
         [class]="getCurrentColorClass(color)">
-        {{color.colorId}} {{color.colorName}}</li>
+        {{color.colorName}}</li>
 </ul>
 
 <!-- <select class="form-control">
