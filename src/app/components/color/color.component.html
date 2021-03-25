@@ -9,7 +9,11 @@
         {{color.colorName}}</li>
 </ul>
 
-<!-- <select class="form-control">
+<select [(ngModel)]="model">
+    <option *ngFor="let item of list" [value]="item">{{item}}</option>
+</select>
+
+<select class="form-control">
     <option *ngFor="let color of colors" routerLink="cars" (selectionChange)="setCurrentColor(color)"
         [queryParams]="{colorId: color.colorId}" queryParamsHandling="merge">{{color.colorName}}</option>
-</select> -->
+</select>
