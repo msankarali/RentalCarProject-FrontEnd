@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CarDetailsWithImagesDto } from 'src/app/models/dtos/carDetailsWithImagesDto';
+import { CarDto } from 'src/app/models/dtos/carDto';
+import { CarDetailService } from 'src/app/services/car-detail.service';
 
 @Component({
   selector: 'app-car-details',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarDetailsComponent implements OnInit {
 
-  constructor() { }
+  selectedCarDetails: CarDetailsWithImagesDto;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private carDetailService: CarDetailService
+  ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      this.carDetailService.getCarDetailsByCarId(params['carId']).subscribe(response => {
+        console.log(response)
+        this.selectedCarDetails = response.data;
+      })
+    })
   }
 
 }

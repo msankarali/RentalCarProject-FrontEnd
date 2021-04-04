@@ -1,1 +1,15 @@
 <p>car-details works!</p>
+
+<div>
+    <div *ngFor="let carImage of selectedCarDetails.carImages">
+        <img src="https://localhost:44334/upload/images/{{carImage.imagePath}}" alt="car detail images">
+    </div>
+    <div>
+        {{selectedCarDetails.brandName}}<br>
+        {{selectedCarDetails.carName}}<br>
+        {{selectedCarDetails.colorName}}<br>
+        {{selectedCarDetails.dailyPrice}}<br>
+        {{selectedCarDetails.description}}<br>
+        {{selectedCarDetails.modelYear}}<br>
+    </div>
+</div>
