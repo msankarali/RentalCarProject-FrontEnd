@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Color } from 'src/app/models/entities/color';
 import { ColorService } from 'src/app/services/color.service';
@@ -9,10 +9,12 @@ import { ColorService } from 'src/app/services/color.service';
   styleUrls: ['./color.component.css']
 })
 export class ColorComponent implements OnInit {
-
+  // @Input() colorId: number;
   colors: Color[] = [];
   currentColor: Color;
+  currentColorId: number = null;
   filterColorText = '';
+
   constructor(
     private colorService: ColorService,
     public router: Router,
@@ -29,18 +31,6 @@ export class ColorComponent implements OnInit {
   }
 
   setCurrentColor(color: Color) {
-    // if (color == null) {
-    //   this.router.navigate(
-    //     [],
-    //     {
-    //       relativeTo: this.activatedRoute,
-    //       queryParams: { colorId: '' },
-    //       queryParamsHandling: 'merge', // remove to replace all query params by provided
-    //     });
-    //   const params = { ...this.activatedRoute.snapshot.queryParams }
-    //   delete params.colorId;
-    //   this.activatedRoute.params.subscribe(parameters => parameters = params);
-    // }
     this.currentColor = color;
   }
   getCurrentColorClass(color: Color) {

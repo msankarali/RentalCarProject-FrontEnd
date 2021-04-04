@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -7,6 +7,8 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./leftsidebar.component.css']
 })
 export class LeftsidebarComponent implements OnInit {
+
+  // @Output() sayi: number;
 
   constructor() { }
   items: MenuItem[] = [];

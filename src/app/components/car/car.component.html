@@ -1,5 +1,5 @@
-<input type="text" class="form-control" [(ngModel)]="filterCarText" placeholder="Araba adı">
-
+<!-- <input type="text" class="form-control" [(ngModel)]="filterCarText" placeholder="Araba adı"> -->
+<!-- 
 <p-table [value]="cars | carFilter:filterCarText">
     <ng-template pTemplate="header">
         <tr>
@@ -10,10 +10,11 @@
             <th>Model Year</th>
             <th>Description</th>
             <th>Active</th>
+            <th>Image</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-car >
-        <tr>
+    <ng-template pTemplate="body" let-car>
+        <tr routerLink="cars/car-details/{{car.carId}}">
             <td>{{car.brandName}}</td>
             <td>{{car.carName}}</td>
             <td>{{car.colorName}}</td>
@@ -21,6 +22,27 @@
             <td>{{car.modelYear}}</td>
             <td>{{car.description}}</td>
             <td>{{car.isDeleted}}</td>
+            <td><img src="https://localhost:44334/upload/images/{{car.imageUrl}}" alt="car-image-preview"
+                    style="height: 200px; width: 200px;">
+            </td>
         </tr>
     </ng-template>
-</p-table>
+</p-table> -->
+
+<div class="row">
+    <div *ngFor="let car of cars" class="col-md-3">
+
+        <p-card header="{{car.carName}}" subheader="{{car.brandName}}" styleClass="p-card-shadow">
+            <ng-template pTemplate="header">
+                <img alt="Card" [style]="{width: '100%', height: '240px'}"
+                    src="https://localhost:44334/upload/images/{{car.imageUrl}}">
+            </ng-template>
+            <p>{{car.description}}</p>
+            <ng-template pTemplate="footer">
+                <p-button label="Details" icon="pi pi-info-circle" [ngStyle]="{backgroundColor: 'var(--yellow-600)'}"
+                    routerLink="/cars/car-details/{{car.carId}}"></p-button>
+            </ng-template>
+        </p-card>
+
+    </div>
+</div>

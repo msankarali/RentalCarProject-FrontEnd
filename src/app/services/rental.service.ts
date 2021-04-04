@@ -3,8 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RentedCarDto } from '../models/dtos/rentedCarDto';
-import { CarDtoResponse } from '../models/responses/carDtoResponse';
-import { RentedCarDtoResponse } from '../models/responses/rentedCarDtoResponse';
+import { ListResponseModel } from '../models/listResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +14,7 @@ export class RentalService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllRentedCars(): Observable<RentedCarDtoResponse> {
-    return this.httpClient.get<RentedCarDtoResponse>(this.apiUrl + 'GetRentedCars');
+  getAllRentedCars(): Observable<ListResponseModel<RentedCarDto>> {
+    return this.httpClient.get<ListResponseModel<RentedCarDto>>(this.apiUrl + 'GetRentedCars');
   }
 }

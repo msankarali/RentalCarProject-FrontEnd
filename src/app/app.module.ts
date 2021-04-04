@@ -22,6 +22,9 @@ import { CarFilterPipe } from './pipes/car-filter.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { ColorFilterPipe } from './pipes/color-filter.pipe';
 import { BrandFilterPipe } from './pipes/brand-filter.pipe';
+import { CarDetailsComponent } from './components/car-details/car-details.component';
+import { CardModule } from 'primeng/card';
+import { ListboxModule } from 'primeng/listbox';
 
 
 
@@ -35,10 +38,11 @@ import { BrandFilterPipe } from './pipes/brand-filter.pipe';
     CarComponent,
     RentComponent,
     LeftsidebarComponent,
-    
+
     CarFilterPipe,
     ColorFilterPipe,
-    BrandFilterPipe
+    BrandFilterPipe,
+    CarDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,9 @@ import { BrandFilterPipe } from './pipes/brand-filter.pipe';
       positionClass: 'toastr-bottom-right',
     }),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CardModule,
+    ListboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

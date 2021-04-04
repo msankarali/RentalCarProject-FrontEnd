@@ -8,15 +8,18 @@
 
 <div *ngIf="dataLoaded == true">
 
+    <br>
     <input type="text" class="form-control" placeholder="Markalarda ara" id="filterBrandText"
         [(ngModel)]="filterBrandText">
-    <ol>
-        <li class="list-group-item" routerLink="cars" [queryParams]="{brandId: ''}" queryParamsHandling='merge'
-            (click)="setCurrentBrand(null)" [class]="getCurrentBrandClass(null)">Tümü</li>
-        <li *ngFor="let brand of brands | brandFilter: filterBrandText" (click)="setCurrentBrand(brand)"
+    <br>
+    <div>
+        <div class="list-group-item" routerLink="cars" [queryParams]="{brandId: null}" queryParamsHandling='merge'
+            (click)="setCurrentBrand(null)" [class]="getCurrentBrandClass(null)">Tümü</div>
+        <div *ngFor="let brand of brands | brandFilter: filterBrandText" (click)="setCurrentBrand(brand)"
             routerLink="cars" [queryParams]="{brandId: brand.brandId}" queryParamsHandling="merge"
             [class]="getCurrentBrandClass(brand)">
-            {{brand.brandName}}</li>
-    </ol>
+            {{brand.brandName}}</div>
+    </div>
 
 </div>
+<br>

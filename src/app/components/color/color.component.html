@@ -1,19 +1,22 @@
-<input type="text" class="form-control" id="filterColorText" placeholder="Renklerde ara"
-    [(ngModel)]="filterColorText" />
-<ul>
+<!-- <input type="text" class="form-control" id="filterColorText" placeholder="Renklerde ara"
+    [(ngModel)]="filterColorText" /> -->
+<!-- <ul>
     <li class="list-group-item" (click)="setCurrentColor(null)" [class]="getCurrentColorClass(null)" [routerLink]=[]
         [queryParams]="{colorId: ''}" queryParamsHandling='merge'>Tümü</li>
     <li *ngFor="let color of colors | colorFilter: filterColorText" (click)="setCurrentColor(color)" routerLink="cars"
         [queryParams]="{colorId: color.colorId}" queryParamsHandling="merge" (relativeTo)="activatedRoute"
         [class]="getCurrentColorClass(color)">
         {{color.colorName}}</li>
-</ul>
+</ul> -->
 
-<select [(ngModel)]="model">
-    <option *ngFor="let item of list" [value]="item">{{item}}</option>
+<select class="form-control" [(ngModel)]="currentColorId" [routerLink]="[]" [queryParams]="{colorId: currentColorId}"
+    queryParamsHandling='merge'>
+    <option [ngValue]="null" selected>Renk</option>
+    <option *ngFor="let color of colors" [value]="color.colorId">{{color.colorName}}</option>
 </select>
 
+<!-- 
 <select class="form-control">
     <option *ngFor="let color of colors" routerLink="cars" (selectionChange)="setCurrentColor(color)"
         [queryParams]="{colorId: color.colorId}" queryParamsHandling="merge">{{color.colorName}}</option>
-</select>
+</select> -->

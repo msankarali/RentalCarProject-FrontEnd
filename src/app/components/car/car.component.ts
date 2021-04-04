@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { CarDto } from 'src/app/models/dtos/carDto';
 import { CarFilterDto } from 'src/app/models/filters/carFilterDto';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -13,11 +14,6 @@ export class CarComponent implements OnInit {
 
   cars: CarDto[] = [];
   filterCarText: string;
-  // carFilterDto: CarFilterDto;
-  // filterColorId: number;
-  // filterBrandId: number;
-  // filterMinPrice: number;
-  // filterMaxPrice: number;
   metin: string;
 
   constructor(
@@ -27,7 +23,7 @@ export class CarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
     // !! queryParams => parametre degisiklik durumunda tetikliyor
     // *
     // ? subscribe async metod

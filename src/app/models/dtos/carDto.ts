@@ -7,4 +7,5 @@ export interface CarDto {
     modelYear: number;
     description: string;
     isDeleted: boolean;
+    imageUrl: string;
 }
